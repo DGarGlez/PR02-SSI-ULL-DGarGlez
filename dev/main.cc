@@ -1,3 +1,10 @@
+/**
+ * @file main.cc
+ * @brief Implementación de funciones para limpiar texto y expandir claves para el cifrado Vigenère.
+ * 
+ * Este archivo contiene las implementaciones de las funciones necesarias para limpiar un texto
+ * de caracteres no alfabéticos y convertirlo a mayúsculas, así como para expandir una clave para el cifrado Vigenère.
+ */
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -8,6 +15,12 @@ using namespace std;
 const string ALFABETO = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const int MODULO = 26; // Se considera sin la Ñ en este caso.
 
+/**
+ * @brief Limpia un texto de caracteres no alfabéticos y los convierte a mayúsculas.
+ * 
+ * @param texto Texto a limpiar.
+ * @return Texto limpio y en mayúsculas.
+ */
 string limpiarTexto(const string& texto) {
     string resultado;
     for (char c : texto) {
@@ -18,6 +31,13 @@ string limpiarTexto(const string& texto) {
     return resultado;
 }
 
+/**
+ * @brief Expande una clave para que coincida con la longitud del texto a cifrar.
+ * 
+ * @param clave Clave original.
+ * @param longitud Longitud del texto a cifrar.
+ * @return Clave expandida.
+ */
 string expandirClave(const string& clave, int longitud) {
     string claveExpandida;
     for (int i = 0; i < longitud; ++i) {
@@ -26,6 +46,13 @@ string expandirClave(const string& clave, int longitud) {
     return claveExpandida;
 }
 
+/**
+ * @brief Cifra un texto utilizando el cifrado Vigenère.
+ * 
+ * @param texto Texto a cifrar.
+ * @param clave Clave para cifrar el texto.
+ * @return Texto cifrado.
+ */
 string cifrarVigenere(const string& texto, const string& clave) {
     string textoLimpio = limpiarTexto(texto);
     string claveExpandida = expandirClave(clave, textoLimpio.length());
@@ -53,6 +80,13 @@ string cifrarVigenere(const string& texto, const string& clave) {
     return cifrado;
 }
 
+/**
+ * @brief Descifra un texto cifrado con el cifrado Vigenère.
+ * 
+ * @param textoCifrado Texto cifrado.
+ * @param clave Clave para descifrar el texto.
+ * @return Texto descifrado.
+ */
 string descifrarVigenere(const string& textoCifrado, const string& clave) {
     string claveExpandida = expandirClave(clave, textoCifrado.length());
     string descifrado;
