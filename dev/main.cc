@@ -1,6 +1,6 @@
 /**
  * @file main.cc
- * @brief Implementación de funciones para limpiar texto y expandir claves para el cifrado Vigenère.
+ * @brief Implementación de funciones para limpiar texto y expandir claves para el cifrado Vigenère, además de cifrar y descifrar.
  * 
  * Este archivo contiene las implementaciones de las funciones necesarias para limpiar un texto
  * de caracteres no alfabéticos y convertirlo a mayúsculas, así como para expandir una clave para el cifrado Vigenère.
